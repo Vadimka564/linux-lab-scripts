@@ -1,6 +1,8 @@
 pipeline {
     agent any
-
+    options { 
+        skipDefaultCheckout(true) 
+    }
     environment {
         PACKAGE_NAME = 'count-files'
         PACKAGE_VERSION = '1.0'
@@ -27,6 +29,7 @@ pipeline {
                 docker {
                     image 'fedora:latest'
                     args '-u root'
+                    reuseNode true
                 }
             }
             steps {
@@ -49,6 +52,7 @@ pipeline {
                 docker {
                     image 'ubuntu:latest'
                     args '-u root'
+                    reuseNode true
                 }
             }
             steps {
@@ -70,6 +74,7 @@ pipeline {
                 docker {
                     image 'oraclelinux:8'
                     args '-u root'
+                    reuseNode true
                 }
             }
             steps {
@@ -86,6 +91,7 @@ pipeline {
                 docker {
                     image 'ubuntu:latest'
                     args '-u root'
+                    reuseNode true
                 }
             }
             steps {
