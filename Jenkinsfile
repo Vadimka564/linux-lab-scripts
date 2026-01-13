@@ -107,7 +107,7 @@ pipeline {
 
     post {
         success {
-            archiveArtifacts artifacts: '*.rpm, *.deb'
+            archiveArtifacts artifacts: '*.rpm, *.deb', allowEmptyArchive: true
             echo 'Build completed successfully!'
         }
         failure {
